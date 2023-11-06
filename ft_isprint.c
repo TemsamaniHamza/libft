@@ -18,7 +18,7 @@ int ft_isprint(int c){
 	return (0);
 }
 
-int main(){
+/* int main(){
     int c = 49;
     printf("%d",ft_isprint(c));
-}
+} */

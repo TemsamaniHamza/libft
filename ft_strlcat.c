@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char	*ft_strlcat(char	*dest, char	*src, size_t size)
+size_t	ft_strlcat(char *dest,const char *src, size_t size)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
@@ -29,9 +29,9 @@ char	*ft_strlcat(char	*dest, char	*src, size_t size)
 			j++;
 		}
 		dest[i] = '\0';
-		return (dest);
+		return (i);
 	}
-	return "zbi";
+	return (i);
 }
 /* 
 int main(){

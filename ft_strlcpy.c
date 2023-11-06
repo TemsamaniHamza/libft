@@ -7,7 +7,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size){
         i++;
     }
     dst[i] = '\0';
-    return (ft_strlen(src));
+    return (i);
 }
 /* 
 int main(){
