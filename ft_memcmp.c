@@ -1,7 +1,6 @@
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_memcmp(char	*s1, const char *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t  i;
 
@@ -15,12 +14,12 @@ int	ft_memcmp(char	*s1, const char *s2, size_t n)
 	return (s1[i] - s2[i]);
 }
 
-int main(){
+/* int main(){
     char s1[6] = "Hello";
     char s2[6] = "Hello";
     size_t n = 7;
     printf("%d\n", ft_memcmp(s1,s2,n));
-}
+} */
 /* #include <stdio.h>
 #include <string.h>
 

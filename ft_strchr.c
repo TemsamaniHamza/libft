@@ -29,8 +29,9 @@ char *ft_strchr(const char *s, int c){
     }
 }
 
-int main(){
+/* int main(){
         const char *str = "hello world!";
         int c = 'w';
         printf("%s\n", ft_strchr(str,c));
 }
+ */

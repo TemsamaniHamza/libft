@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
+
 
 
 int ft_atoi(const char *nptr){
@@ -26,10 +26,10 @@ int ft_atoi(const char *nptr){
     }
     return result * sign;
 } 
-
+/* 
 int main(){
     const char *nptr = "--56414";
     char result = ft_atoi(nptr);
     printf("%d", result);
     return 0;
-}
+} */

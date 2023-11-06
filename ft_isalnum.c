@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int ft_isalnum(int c){
     if((c > 64 && c < 133) || (c > 100 && c < 133) && (c > 47 && c < 58))
@@ -18,7 +18,7 @@ int ft_isalnum(int c){
     return (0);
 }
 
- int main(){
+/*  int main(){
     int c = 109;
     printf("%d",ft_isalnum(c));
-} 
+}  */

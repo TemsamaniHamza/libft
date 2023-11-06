@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int ft_toupper(int c){
     if (c > 'a' && c <'z')
@@ -18,7 +18,8 @@ int ft_toupper(int c){
     return (c);
 }
 
-int main(){
+/* int main(){
     int c = 121;
     printf("%c", ft_toupper(c));
 }
+ */

@@ -1,27 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htemsama <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 14:00:03 by htemsama          #+#    #+#             */
-/*   Updated: 2023/11/05 14:00:07 by htemsama         ###   ########.fr       */
+/*   Created: 2023/11/06 18:42:27 by htemsama          #+#    #+#             */
+/*   Updated: 2023/11/06 18:42:30 by htemsama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char *s){
-    int len = ft_strlen(s);
-    char *ptr;
-    size_t i = 0;
-    ptr = (char *)malloc(len * sizeof(char));
-    while (s[i] != '\0')
-    {
-        ptr[i] = s[i];
-        i++;
-    }
-    ptr[i] = '\0';
-    return (ptr);
+void ft_putnbr_fd(int n, int fd)
+{
+	long	nbr;
+	char	c[10];
+	int		i;
+
+	nbr = n;
+	i = 0;
+	if (nbr < 0)
+	{
+		write (1, "-", 1);
+		nbr = nbr * -1;
+	}
+	while (nbr > 9)
+	{
+		c[i] = (nbr % 10) + '0';
+		nbr = (nbr / 10);
+		i++;
+	}
+	c[i] = nbr + '0';
+	while (i >= 0)
+	{
+		write(fd, &c[i], 1);
+		i--;
+	}
 }
+
+/* 
+int main(){
+    int n = 42159;
+    int fd = 1;
+    ft_putnbr_fd(n,fd);
+} */

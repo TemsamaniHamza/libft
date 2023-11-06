@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
+
 
 char *ft_substr(char const *s, unsigned int start,size_t len){
 	size_t i = 0;
@@ -28,9 +28,10 @@ char *ft_substr(char const *s, unsigned int start,size_t len){
 	return (str);
 }
 
-int main(){
+/* int main(){
 	char const *s = "Hello world!";
 	unsigned int start = 2;
 	size_t len = 5;
 	printf("%s\n",ft_substr(s,start,len));
 }
+ */

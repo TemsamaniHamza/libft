@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
+
 
 char *ft_strnstr(const char *big, const char *little, size_t len){
     size_t i = 0;
@@ -21,7 +21,7 @@ char *ft_strnstr(const char *big, const char *little, size_t len){
         return NULL;
     if (little == NULL)
         return (char *)big;
-    size_t k = strlen(little);
+    size_t k = ft_strlen(little);
     while (big[i] != '\0') 
     {
         if (big[i] == little[j])

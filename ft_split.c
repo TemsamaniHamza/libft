@@ -10,7 +10,113 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char 
-char **ft_split(char const *s, char c){
+#include "libft.h"
 
+
+int ft_calcul_len(char const *s, char c){
+    size_t i = 0;
+    size_t count = 0;
+    while (s[i] != '\0')
+    {
+        if (s[i] == c)
+            count++;
+        i++;
+    }
+    i -= count;
+    return (i);
 }
+
+int ft_calculcount(char const *s, char c){
+    size_t i = 0;
+    size_t count = 0;
+    while (s[i] != '\0')
+    {
+        if (s[i] == c && (s[i + 1] != c && s[i+1] != '\0'))
+            count++;
+        i++;
+    }
+    return (count);
+}
+
+size_t *ft_calcul_nmb(char const *s, char c)
+{
+    size_t i = 0;
+    size_t count = 0;
+    size_t j = 0;
+    size_t *str;
+    while (s[i] != '\0')
+    {
+        if (s[i] == c && (s[i + 1] != c && s[i+1] != '\0'))
+            count++;
+        i++;
+    }
+    str = (size_t *)malloc((count + 1) * sizeof(size_t));
+    if (!str)
+        return NULL;
+    i = 0;
+    if (s[0] != c){
+        while (s[i] != '\0' && s[i] != c){
+            str[j] = i + 1;
+            j++;
+        }
+    }
+    while (s[i] != '\0'){
+        if (s[i] == c && (s[i + 1] != c && s[i+1] != '\0')){
+            str[j] = i + 1;
+            j++;
+        }
+        i++;
+    }
+    str[j] != '\0';
+    return (str);
+}
+size_t ft_allo_size(char const *s, char c, size_t index){
+    size_t i = index;
+    size_t k = 0;
+    size_t result;
+    char *str;
+    while (s[index] != '\0' && s[index] != c)
+        index++;
+    result = index - i;
+    return (result);
+}
+
+char **ft_split(char const *s, char c){
+    size_t *j = ft_calcul_nmb(s,c);
+    size_t count = ft_calculcount(s,c);
+    size_t n = 0;
+    size_t index;
+    char **str;
+    str = (char **)malloc((ft_calcul_len(s,c) + 1)  * sizeof(char *));
+    if (!str)
+        return NULL;
+    while (n < count)
+    {
+        index = j[n];
+        str[n] = (char *)malloc((ft_allo_size(s,c,index)) * sizeof(char));
+        if (str[n] == NULL)
+            return (NULL);
+        str[n] = ft_substr(s,index,ft_allo_size(s,c,index));
+        n++;
+    }
+    return (str);
+}
+
+/* int main() {
+    char const *s = " Hello, how are you?";
+    char c = ' ';
+    char **result = ft_split(s, c);
+
+    // Print the result
+    for (size_t i = 0; result[i] != NULL; i++) {
+        printf("%s\n", result[i]);
+    }
+
+    // Free the memory
+    for (size_t i = 0; result[i] != NULL; i++) {
+        free(result[i]);
+    }
+    free(result);
+
+    return 0;
+} */

@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htemsama <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 14:00:03 by htemsama          #+#    #+#             */
-/*   Updated: 2023/11/05 14:00:07 by htemsama         ###   ########.fr       */
+/*   Created: 2023/11/06 17:32:55 by htemsama          #+#    #+#             */
+/*   Updated: 2023/11/06 17:33:00 by htemsama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char *s){
-    int len = ft_strlen(s);
-    char *ptr;
+void to_upper(unsigned int i, char *c){
+    if (*c >= 'a' && *c <= 'z')
+        *c = *c - 32;
+}
+
+void ft_striteri(char *s, void (*f)(unsigned int, char*)){
     size_t i = 0;
-    ptr = (char *)malloc(len * sizeof(char));
-    while (s[i] != '\0')
-    {
-        ptr[i] = s[i];
+    while (s[i] != '\0'){
+        f(i,(s+i));
         i++;
     }
-    ptr[i] = '\0';
-    return (ptr);
 }
+
+/* int main(){
+    char str[] = "hellow ww ";
+    ft_striteri(str, to_upper);
+    printf("%s", str);
+    return 0;
+}
+ */

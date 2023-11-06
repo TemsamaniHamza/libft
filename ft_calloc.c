@@ -10,18 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-void ft_bzero(void *s, size_t n){
-    size_t i = 0;
-    char *str = (char *)s;
-    while (i < n)
-    {
-        str[i] = 0;
-        i++;
-    }
-}
+#include "libft.h"
 
 void *ft_calloc(size_t number, size_t size)
 {

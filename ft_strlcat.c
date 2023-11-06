@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strlcat(char	*dest, char	*src, size_t size)
 {
@@ -33,7 +33,7 @@ char	*ft_strlcat(char	*dest, char	*src, size_t size)
 	}
 	return "zbi";
 }
-
+/* 
 int main(){
 	char dest[] = "Hello";
 	char src[] = "NULLL";
@@ -41,4 +41,4 @@ int main(){
 	ft_strlcat(dest, src, size);
 	printf("%s\n", dest);
 	return 0;
-}
+} */

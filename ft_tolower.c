@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int ft_tolower(int c){
     if (c >= 'A' && c <= 'Z')
@@ -18,10 +18,10 @@ int ft_tolower(int c){
     return (c);
 }
 
-int main(){
+/* int main(){
     int c = 'A';
     int a = 0;
     a = ft_tolower(c);
     printf("%c", a);
     return 0;
-}
+} */

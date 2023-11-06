@@ -9,16 +9,7 @@
 /*   Updated: 2023/10/30 16:49:45 by htemsama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-#include <stdio.h>
-
-int ft_strlen(const char *str){
-    int i = 0;
-    while (str[i] != '\0')
-        i++;
-    return (i);
-}
+#include "libft.h"
 
 char *ft_strjoin(char const *s1, char const *s2){
 	size_t i = 0;
@@ -43,8 +34,8 @@ char *ft_strjoin(char const *s1, char const *s2){
     return (str);
 }
 
-int main(){
+/* int main(){
     char const *s1 = "Hello ";
     char const *s2 = "World!";
     printf("%s\n", ft_strjoin(s1,s2));
-}
+} */
