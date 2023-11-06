@@ -1,9 +1,10 @@
 #include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n){
+/*  void *ft_memchr(const void *s, int c, size_t n){
     size_t i = 0;
     size_t count = 0;
-    char *str = (char *)s;
+    unsigned char *str = (unsigned char *)s;
+
     while(str[i] != '\0')
     {
         if (str[i] == c)
@@ -19,8 +20,21 @@ void *ft_memchr(const void *s, int c, size_t n){
     while (str[i] != c){
         i++;
     }
-    return (char *)&str[i];
+    return (unsigned char *)&str[i];
+} */
+
+void *ft_memchr(const void *s, int c, size_t n){
+    size_t i = 0;
+    unsigned char *str = (unsigned char *)s;
+    while (i < n)
+    {
+        if (str[i] == (unsigned char)c)
+            return &str[i];
+        i++;
+    }
+    return NULL;
 }
+ 
 
 /* int main() {
     const char str[] = "Hello, World!";

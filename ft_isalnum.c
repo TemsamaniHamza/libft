@@ -13,7 +13,7 @@
 #include "libft.h"
 
 int ft_isalnum(int c){
-    if((c > 64 && c < 133) || (c > 100 && c < 133) && (c > 47 && c < 58))
+    if((ft_isalpha(c) == 1)|| (ft_isdigit(c) == 1))
         return (1);
     return (0);
 }
