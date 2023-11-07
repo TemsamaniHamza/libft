@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:34:27 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/07 19:42:13 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/07 19:45:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
         return(NULL);
     }
 } */
+
 char *ft_strchr(const char *s, int c){
     size_t i = 0;
     unsigned char *str = (unsigned char *)s;
