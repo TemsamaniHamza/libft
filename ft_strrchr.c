@@ -1,9 +1,23 @@
 #include "libft.h"
 
 char *ft_strrchr(const char *s, int c){
-    int i = 0;
-    int count = 0;
-    while (s[i] != '\0'){
+    size_t i = ft_strlen(s);
+    size_t count = 0;
+    unsigned char *str = (unsigned char *)s;
+    if (c > 256){
+        c = c % 256;
+    }
+    if (str[i] == c)
+        return &str[i];
+    while (i > 0){
+        if (str[i] == c)
+            return &str[i];
+        i--;
+    }
+    if (str[i] == c)
+        return &str[i];
+    return NULL;
+/*     while (i != '\0'){
         if (s[i] == c)
             count++;
         i++;
@@ -18,7 +32,7 @@ char *ft_strrchr(const char *s, int c){
         s++;
         i--;
     }
-    return (char *)s;
+    return (char *)s; */
 }
 
 /* int main(){
