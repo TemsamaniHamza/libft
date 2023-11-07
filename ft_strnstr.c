@@ -3,49 +3,82 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: htemsama <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:07:13 by htemsama          #+#    #+#             */
-/*   Updated: 2023/11/04 16:07:17 by htemsama         ###   ########.fr       */
+/*   Updated: 2023/11/08 02:16:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 
-char *ft_strnstr(const char *big, const char *little, size_t len){
+/* char *ft_strnstr(const char *big, const char *little, size_t len){
     size_t i = 0;
     size_t j = 0;
     size_t f_occu;
+    size_t k = ft_strlen(little);
+    if (len == 0)
+        return 0;
     if (big == NULL)
         return NULL;
     if (little == NULL)
         return (char *)big;
-    size_t k = ft_strlen(little);
-    while (big[i] != '\0') 
+    while (big[i] != '\0' && i < len) 
     {
         if (big[i] == little[j])
         {
-            f_occu = i - 1;
+            f_occu = i;
             while (little[j] != '\0' && big[i] == little[j]) 
             {
+                if (j == k)
+                {
+                    return (char *)&big[f_occu];
+                }
                 j++;
                 i++;
             }
-        }
-        if (j == k)
-        {
+            if (little[j] != '\0' && big[i] != little[j]){
+                i = f_occu + 1;
+            }
+        }    
+        if (little[j] == '\0')
             return (char *)&big[f_occu];
-        }
         i++;
     }
     return NULL;
-} 
-
-/*  int main(){
+}  */
+char *ft_strnstr(const char *big, const char *little, size_t len){
+    size_t i = 0;
+    size_t j = 0;
+    size_t f_occu;
+    size_t k = ft_strlen(little);
+    if (len == 0)
+        return 0;
+    if (big == NULL)
+        return NULL;
+    if (little == NULL)
+        return (char *)big;
+    while (big[i] != '\0' && i < len) 
+    {
+        if (big[i] == little[j])
+        {
+            f_occu = i;
+            while (big[i] == little[j]){
+                i++;
+                j++;
+            }
+            if (big[i] != little[j])
+                i = f_occu;
+        }
+        i++;
+    }
+    return (char*)&big[f_occu];
+}
+/*   int main(){
     const char big[] = "Hello little string";
     const char *little = "NULL";
     size_t len = 10;
     printf("%s", ft_strnstr(big,little,len));
     return 0;
-} */
+}  */
