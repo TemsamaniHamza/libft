@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:07:13 by htemsama          #+#    #+#             */
-/*   Updated: 2023/11/08 02:16:45 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/09 16:34:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,13 @@
 char *ft_strnstr(const char *big, const char *little, size_t len){
     size_t i = 0;
     size_t k = ft_strlen(little);
-    if (len == 0)
-        return NULL;
-    if (little == NULL || little[0] == '\0')
-        return (char *)big;
     while (big[i] != '\0' && i < len){
         if (ft_memcmp(&big[i],little,k) == 0 && k+i <= len)
             return (char *)&big[i];
         i++;
     }
+    if (little == NULL || little[0] == '\0')
+        return (char *)big;
     if (big[i] == '\0' || i == len)
         return NULL;
     return (char *)&big[i];
