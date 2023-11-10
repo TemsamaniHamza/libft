@@ -12,13 +12,14 @@
 
 #include "libft.h"
 
-int ft_isdigit(int c){
-    if (c > 47 && c < 58)
-        return (1);
-    return (0);
+int	ft_isdigit(int c)
+{
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
 }
 
 /* int main(){
-    int c = 49;
-    printf("%d",ft_isdigit(c));
+	int c = 49;
+	printf("%d",ft_isdigit(c));
 } */

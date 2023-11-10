@@ -35,10 +35,10 @@ int	ft_atoi(const char *nptr)
 	}
 	return (result * sign);
 }
-/* 
-int main(){
-    const char *nptr = "--56414";
-    char result = ft_atoi(nptr);
-    printf("%d", result);
-    return 0;
+/*
+int	main(void){
+	const char *nptr = "--56414";
+	char result = ft_atoi(nptr);
+	printf("%d", result);
+	return (0);
 } */

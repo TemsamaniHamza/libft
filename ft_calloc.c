@@ -12,21 +12,21 @@
 
 #include "libft.h"
 
-void *ft_calloc(size_t number, size_t size)
+void	*ft_calloc(size_t number, size_t size)
 {
-    void *ptr;
-    ptr = (void *)malloc(number * size);
-    if (!ptr)
-        return NULL;
-    ft_bzero(ptr,number);
-    return (ptr);
-    // return void *
+	void	*ptr;
+
+	ptr = (void *)malloc(number * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, number);
+	return (ptr);
 }
 
 /* int main(){
-    size_t number = 2;
-    size_t size = sizeof(int);
-    char *ptr;
-    ptr = (char *)ft_calloc(number, size);
-    printf("%s", ptr);
+	size_t number = 2;
+	size_t size = sizeof(int);
+	char *ptr;
+	ptr = (char *)ft_calloc(number, size);
+	printf("%s", ptr);
 } */
