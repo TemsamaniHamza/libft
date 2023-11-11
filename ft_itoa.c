@@ -53,23 +53,23 @@ char	*ft_swap(char *str)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+char	*ft_condition(int n)
 {
-	size_t	len;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == 2147483647)
+		return (ft_strdup("2147483647"));
+}
+
+char	*ft_itoa_sub(int n, size_t len, size_t check)
+{
 	size_t	i;
 	int		rest;
 	char	*str;
-	size_t	count;
 
-	count = 0;
-	len = ft_calculen(n);
 	i = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		len++;
-		count++;
-	}
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
@@ -81,104 +81,67 @@ char	*ft_itoa(int n)
 		len--;
 		i++;
 	}
-	if (count > 0)
-	{
-		str[i] = '-';
-		i++;
-	}
+	if (check > 0)
+		str[i++] = '-';
 	str[i] = '\0';
-	ft_swap(str);
 	return (str);
-}
-
-/*
-int	main(void){
-	int n = 1234;
-	char *result = ft_itoa(n);
-	int i = 0;
-	while (result[i] != '\0')
-	{
-		printf("%c", result[i]);
-		i++;
-	}
-	return (0);
-} */
-/* size_t    ft_calculen(int n)
-{
-   int        nb;
-   size_t    count;
-
-   nb = n;
-   count = 0;
-   if (nb == 0)
-		return (1);
-   if (nb < 0)
-		nb *= -1;
-   while (nb > 0)
-   {
-		nb = nb / 10;
-		count++;
-   }
-   return (count);
-}
-
-cchar	*ft_swap(char *str)
-{
-   size_t    len;
-   size_t    i;
-   size_t    j;
-   char    temp;
-
-   len = strlen(str) - 1;
-   i = 0;
-   j = strlen(str);
-   while (i < len)
-   {
-		temp = str[i];
-		str[i] = str[len];
-		str[len] = temp;
-		i++;
-		len--;
-   }
-   str[j] = '\0';
-   return (str);
 }
 
 char	*ft_itoa(int n)
 {
-   size_t    len;
-   size_t    i;
-   int        rest;
-   char    *str;
-   size_t count;
+	char	*str;
+	size_t	len;
+	size_t	check;
 
-   count = 0;
-   len = ft_calculen(n);
-   i = 0;
-   if (n < 0)
-   {
-		n *= -1;
+	check = 0;
+	len = ft_calculen(n);
+	if (n < 0)
+	{
 		len++;
-		count++;
-   }
-   str = (char *)malloc((len + 1) * sizeof(char));
-   if (str == NULL)
+		n *= -1;
+		check++;
+	}
+	if (n == -2147483648 || n == 0)
+		return (ft_condition(n));
+	str = ft_itoa_sub(n, len, check);
+	ft_swap(str);
+	return (str);
+}
+
+/* char	*ft_itoa(int n)
+{
+	size_t	len;
+	size_t	i;
+	int		rest	len = ft_calculen(n);
+;
+	char	*str;
+	size_t	check;
+
+	check = 0;
+	len = ft_calculen(n);
+	i = 0;
+	if (n < 0)
+	{
+		len++;
+		n *= -1;
+		check++;
+	}
+	if (n == -2147483648 || n == 0)
+		return (ft_condition(n));
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (str == NULL)
 		return (NULL);
-   while (n > 0 && len > 0)
-   {
+	while (n > 0 && len > 0)
+	{
 		rest = n % 10;
 		str[i] = rest + '0';
 		n = n / 10;
 		len--;
 		i++;
-   }
-   if (count > 0)
-   {
-		str[i] = '-';
-		i++;
-   }
-   str[i] = '\0';
-   ft_swap(str);
-   return (str);
-}
-}*/
+	}
+	if (check > 0)
+		str[i++] = '-';
+	str[i] = '\0';
+	ft_swap(str);
+	return (str);
+}  */
