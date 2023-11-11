@@ -21,6 +21,8 @@ size_t	ft_calculen(int n)
 	count = 0;
 	if (nb == 0)
 		return (1);
+	if (nb < 0)
+		nb *= -1;
 	while (nb > 0)
 	{
 		nb = nb / 10;
@@ -57,9 +59,17 @@ char	*ft_itoa(int n)
 	size_t	i;
 	int		rest;
 	char	*str;
+	size_t	count;
 
+	count = 0;
 	len = ft_calculen(n);
 	i = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		len++;
+		count++;
+	}
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
@@ -69,6 +79,11 @@ char	*ft_itoa(int n)
 		str[i] = rest + '0';
 		n = n / 10;
 		len--;
+		i++;
+	}
+	if (count > 0)
+	{
+		str[i] = '-';
 		i++;
 	}
 	str[i] = '\0';
@@ -88,3 +103,82 @@ int	main(void){
 	}
 	return (0);
 } */
+/* size_t    ft_calculen(int n)
+{
+   int        nb;
+   size_t    count;
+
+   nb = n;
+   count = 0;
+   if (nb == 0)
+		return (1);
+   if (nb < 0)
+		nb *= -1;
+   while (nb > 0)
+   {
+		nb = nb / 10;
+		count++;
+   }
+   return (count);
+}
+
+cchar	*ft_swap(char *str)
+{
+   size_t    len;
+   size_t    i;
+   size_t    j;
+   char    temp;
+
+   len = strlen(str) - 1;
+   i = 0;
+   j = strlen(str);
+   while (i < len)
+   {
+		temp = str[i];
+		str[i] = str[len];
+		str[len] = temp;
+		i++;
+		len--;
+   }
+   str[j] = '\0';
+   return (str);
+}
+
+char	*ft_itoa(int n)
+{
+   size_t    len;
+   size_t    i;
+   int        rest;
+   char    *str;
+   size_t count;
+
+   count = 0;
+   len = ft_calculen(n);
+   i = 0;
+   if (n < 0)
+   {
+		n *= -1;
+		len++;
+		count++;
+   }
+   str = (char *)malloc((len + 1) * sizeof(char));
+   if (str == NULL)
+		return (NULL);
+   while (n > 0 && len > 0)
+   {
+		rest = n % 10;
+		str[i] = rest + '0';
+		n = n / 10;
+		len--;
+		i++;
+   }
+   if (count > 0)
+   {
+		str[i] = '-';
+		i++;
+   }
+   str[i] = '\0';
+   ft_swap(str);
+   return (str);
+}
+}*/

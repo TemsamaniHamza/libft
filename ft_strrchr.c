@@ -17,23 +17,21 @@ char	*ft_strrchr(const char *s, int c)
 	size_t			i;
 	size_t			count;
 	unsigned char	*str;
+	char			ss;
 
 	i = ft_strlen(s);
 	count = 0;
 	str = (unsigned char *)s;
-	if (c > 256)
-	{
-		c = c % 256;
-	}
-	if (str[i] == c)
+	ss = (char)c;
+	if (str[i] == ss)
 		return (&str[i]);
 	while (i > 0)
 	{
-		if (str[i] == c)
+		if (str[i] == ss)
 			return (&str[i]);
 		i--;
 	}
-	if (str[i] == c)
+	if (str[i] == ss)
 		return (&str[i]);
 	return (NULL);
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	to_upp(unsigned int j, char c)
+/* char	to_upp(unsigned int j, char c)
 {
 	j = 32;
 	if (c >= 'a' && c <= 'z')
@@ -20,7 +20,7 @@ char	to_upp(unsigned int j, char c)
 	else
 		printf("Try next time");
 	return (c);
-}
+} */
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

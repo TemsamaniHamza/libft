@@ -33,20 +33,18 @@ char	*ft_strchr(const char *s, int c)
 {
 	size_t			i;
 	unsigned char	*str;
+	char			ss;
 
+	ss = (char)c;
 	i = 0;
 	str = (unsigned char *)s;
-	if (c > 256)
-	{
-		c = c % 256;
-	}
 	while (str[i] != '\0')
 	{
-		if (str[i] == c)
+		if (str[i] == ss)
 			return (&str[i]);
 		i++;
 	}
-	if (str[i] == '\0' && str[i] == c)
+	if (str[i] == '\0' && str[i] == ss)
 		return (&str[i]);
 	return (NULL);
 }

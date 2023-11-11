@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	str = ((char *)malloc((len1 + len2 - 1) * sizeof(char)));
+	str = ((char *)malloc((len1 + len2 + 1) * sizeof(char)));
 	if (str == NULL)
 		return (NULL);
 	while (s1[i] != '\0')
@@ -41,8 +41,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-/* int main(){
+/*  int main(){
 	char const *s1 = "Hello ";
 	char const *s2 = "World!";
 	printf("%s\n", ft_strjoin(s1,s2));
-} */
+}  */
