@@ -12,54 +12,53 @@
 
 #include "libft.h"
 
-int	ft_count(int count)
+int	ft_int_str(char const c, char const *set)
 {
-	int	i;
+	size_t	i;
 
-	if (count == 8)
+	i = 0;
+	if (c != set[i])
 	{
-		i = 2;
+		while (c != set[i] && set[i] != '\0')
+			i++;
 	}
-	else if (count == 5 || count == 3)
-		i = 1;
+	if (c == set[i] && set[i] != '\0')
+		return (1);
+	return (0);
+}
+
+int	get_first_position(char const *s1, char const *set)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i] && (ft_int_str(s1[i], set) == 1))
+		i++;
 	return (i);
+}
+
+int	get_last_position(char const *s, char const *set)
+{
+	size_t	i;
+
+	i = ft_strlen(s) - 1;
+	while (i > 0 && (ft_int_str(s[i], set) == 1))
+		i--;
+	return (i + 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
-	size_t	k;
-	size_t	count;
 	size_t	len;
-	size_t	j;
-	char	*str;
+	char	*ptr;
 
 	i = 0;
-	k = ft_strlen(s1) - 1;
-	count = 0;
-	len = k + 1;
-	j = 0;
-	if (s1[0] == set[0])
-		count += 5;
-	if (s1[0] == s1[k])
-		count += 3;
-	len = len - ft_count(count) + 1;
-	str = (char *)malloc(len * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		if ((count == 5 || count == 8) && (i == 0))
-			i++;
-		if ((count == 3 || count == 8) && (i == k))
-			break ;
-		str[j] = s1[i];
-		i++;
-		j++;
-	}
-	str[j] = '\0';
-	return (str);
+	len = get_last_position(s1, set) - get_first_position(s1, set);
+	ptr = ft_substr(s1, get_first_position(s1, set), len);
+	return (ptr);
 }
+
 /*
 int	main(void){
 	char const *s1 = " hello world ";
