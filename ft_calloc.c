@@ -16,10 +16,12 @@ void	*ft_calloc(size_t number, size_t size)
 {
 	void	*ptr;
 
+	if (number && size && number > (INT_MAX))
+		return (NULL);
 	ptr = (void *)malloc(number * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, number);
+	ft_bzero(ptr, (number * size));
 	return (ptr);
 }
 
