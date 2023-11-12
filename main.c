@@ -1,9 +1,8 @@
 #include "libft.h"
 
-int	main()
-{
-	int	c;
-
-	c = 49;
-	printf("%d", ft_isdigit(c));
+int	main(void){
+	const char *nptr = " 	 	 	 -65465";
+	int result = ft_atoi(nptr);
+	printf("%d", result);
+	return (0);
 }
