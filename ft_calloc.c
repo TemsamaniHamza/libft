@@ -30,5 +30,5 @@ void	*ft_calloc(size_t number, size_t size)
 	size_t size = sizeof(int);
 	char *ptr;
 	ptr = (char *)ft_calloc(number, size);
-	printf("%s", ptr);
+	printf("%s", ptr); 
 } */
