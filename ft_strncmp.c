@@ -29,6 +29,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 int	main(void){
 	char s1[] = "Hello";
 	char s2[] = "World";
-	size_t n = 5;
+	size_t n = 5; //
 	printf("%d", ft_strncmp(s1,s2,n));
 } */
