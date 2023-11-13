@@ -82,7 +82,6 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 		}
 		i++;
 	}
-	str[j] != '\0';
 	return (str);
 }
 
