@@ -41,16 +41,18 @@ char	*ft_strchr(const char *s, int c)
 	while (str[i] != '\0')
 	{
 		if (str[i] == ss)
-			return (&str[i]);
+			return ((char *)&str[i]);
 		i++;
 	}
 	if (str[i] == '\0' && str[i] == ss)
-		return (&str[i]);
+		return ((char *)&str[i]);
 	return (NULL);
 }
-/* int main(){
-		const char *str = "hello world!";
-		int c = 'w';
-		printf("%s\n", ft_strchr(str,c));
-}
- */
+/* int	main(void)
+{
+	const char	*str = "hello world!";
+	int			c;
+
+	c = 'w';
+	printf("%s\n", ft_strchr(str, c));
+} */
