@@ -49,21 +49,19 @@ int	get_last_position(char const *s, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
 	size_t	len;
 	char	*ptr;
 
-	i = 0;
 	len = get_last_position(s1, set) - get_first_position(s1, set);
 	ptr = ft_substr(s1, get_first_position(s1, set), len);
 	return (ptr);
 }
 
-/*
-int	main(void){
+
+/* int	main(void){
 	char const *s1 = " hello world ";
 	char const *set = " ";
 	char *result = ft_strtrim(s1,set);
 	printf("%s", result);
 	return (0);
-} */
+}  */
