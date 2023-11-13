@@ -12,14 +12,59 @@
 
 #include "libft.h"
 
-t_list *ft_lstnew(void *content)
+/* typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+ */
+/* t_list *ft_lstnew(void *content)
 {
     t_list *nnode;
 
-    t_list = (t_list *)malloc(sizeof(t_list));
-    if (!t_list)
+    nnode = (t_list *)malloc(sizeof(t_list));
+    if (!nnode)
         return (NULL);
     nnode->content = content;
     nnode->next = NULL;
     return (nnode);
 }
+
+void ft_lstadd_front(t_list **lst, t_list *new)
+{
+    new->next = lst;
+    *lst = new; 
+}
+
+int ft_lstsize(t_list *lst)
+{
+    size_t i = 0;
+    while(lst != NULL)
+    {
+        i++;
+        lst = lst -> next;
+    }
+    return (i);
+}
+
+t_list *ft_lstlast(t_list *lst)
+{
+    while(lst != NULL)
+        lst = lst -> next;
+    return (lst);
+}
+
+void ft_lstadd_back(t_list **lst, t_list *new)
+{
+
+} */
+/* int main(void)
+{
+    char *str = "Hello, world!";
+    t_list *node = ft_lstnew(str);
+
+    printf("Content: %s\n",(char *)node->content);
+    printf("Next: %s\n", (char *)node->next);
+    free(node);
+    return (0);
+} */
