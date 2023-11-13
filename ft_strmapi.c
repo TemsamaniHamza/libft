@@ -25,7 +25,6 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	len;
-	size_t	j;
 	size_t	i;
 	char	*str;
 
@@ -44,9 +43,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-/*
-int	main(void){
-	char s[] = "cccc";
-	printf("%s", ft_strmapi(s,to_upp));
+/* 
+int	main(void)
+{
+	char	s[] = "cccc";
+
+	printf("%s", ft_strmapi(s, to_upp));
 	return (0);
 } */
