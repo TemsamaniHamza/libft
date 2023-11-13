@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   test_cleat_split.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htemsama <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 23:16:16 by htemsama          #+#    #+#             */
-/*   Updated: 2023/11/05 23:16:18 by htemsama         ###   ########.fr       */
+/*   Created: 2023/11/13 10:26:30 by htemsama          #+#    #+#             */
+/*   Updated: 2023/11/13 10:26:32 by htemsama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_calcul_len(char const *s, char c)
+char	**ft_calculcount(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
-
-	i = 0;
-	count = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-			count++;
-		i++;
-	}
-	i -= count;
-	return (i);
-}
-
-int	ft_calculcount(char const *s, char c)
-{
-	size_t	i;
-	size_t	count;
+	char	**str;
 
 	i = 0;
 	count = 0;
@@ -42,36 +26,26 @@ int	ft_calculcount(char const *s, char c)
 			count++;
 		i++;
 	}
-	return (count);
+	count++;
+	str = (char **)malloc(count * sizeof(char *));
+	if (!str)
+		return (NULL);
+	return (str);
 }
 
 size_t	*ft_calcul_nmb(char const *s, char c)
 {
 	size_t	i;
-	size_t	count;
 	size_t	j;
 	size_t	*str;
 
 	i = 0;
-	count = 0;
 	j = 0;
-	while (s[i] != '\0')
+	str = (size_t *)ft_calculcount(s, c);
+	if (s[i] != '\0' && s[i] != c)
 	{
-		if (s[i] == c && (s[i + 1] != c && s[i + 1] != '\0'))
-			count++;
-		i++;
-	}
-	str = (size_t *)malloc((count + 1) * sizeof(size_t));
-	if (!str)
-		return (NULL);
-	i = 0;
-	if (s[0] != c)
-	{
-		while (s[i] != '\0' && s[i] != c)
-		{
-			str[j] = i + 1;
-			j++;
-		}
+		str[j] = i + 1;
+		j++;
 	}
 	while (s[i] != '\0')
 	{
@@ -82,6 +56,7 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 		}
 		i++;
 	}
+	str[j] != '\0';
 	return (str);
 }
 
@@ -108,12 +83,12 @@ char	**ft_split(char const *s, char c)
 	size_t	index;
 	char	**str;
 
+	str = ft_calculcount(s, c);
 	j = ft_calcul_nmb(s, c);
-	count = ft_calculcount(s, c);
+	count = 0;
+	while (j[count] != '\0')
+		count++;
 	n = 0;
-	str = (char **)malloc((ft_calcul_len(s, c) + 1) * sizeof(char *));
-	if (!str)
-		return (NULL);
 	while (n < count)
 	{
 		index = j[n];
@@ -123,24 +98,26 @@ char	**ft_split(char const *s, char c)
 		str[n] = ft_substr(s, index, ft_allo_size(s, c, index));
 		n++;
 	}
+	str[n] = NULL;
 	return (str);
 }
 
-/* int main() {
-	char const *s = " Hello, how are you?";
-	char c = ' ';
-	char **result = ft_split(s, c);
+/*  int	main(void)
+{
+	char const	*s;
+	char		c;
+	char		**str;
+	size_t		i;
 
-	// Print the result
-	for (size_t i = 0; result[i] != NULL; i++) {
-		printf("%s\n", result[i]);
+	s = " HelloWorld";
+	c = ' ';
+	str = ft_split(s, c);
+	i = 0;
+	while (str[i] != NULL)
+	{
+		printf("%s\n", str[i]);
+		i++;
 	}
-
-	// Free the memory
-	for (size_t i = 0; result[i] != NULL; i++) {
-		free(result[i]);
-	}
-	free(result);
-
 	return (0);
-} */
+} 
+ */
