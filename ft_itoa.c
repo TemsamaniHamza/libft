@@ -53,7 +53,7 @@ char	*ft_swap(char *str)
 	return (str);
 }
 
-char	*ft_condition(int n)
+/* char	*ft_condition(int n)
 {
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
@@ -61,7 +61,7 @@ char	*ft_condition(int n)
 		return (ft_strdup("0"));
 	if (n == 2147483647)
 		return (ft_strdup("2147483647"));
-}
+} */
 
 char	*ft_itoa_sub(int n, size_t len, size_t check)
 {
@@ -101,8 +101,12 @@ char	*ft_itoa(int n)
 		n *= -1;
 		check++;
 	}
-	if (n == -2147483648 || n == 0)
-		return (ft_condition(n));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == 2147483647)
+		return (ft_strdup("2147483647"));
 	str = ft_itoa_sub(n, len, check);
 	ft_swap(str);
 	return (str);
