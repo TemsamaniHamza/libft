@@ -57,7 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ptr);
 }
 
-
+//
 /* int	main(void){
 	char const *s1 = " hello world ";
 	char const *set = " ";
