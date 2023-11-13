@@ -2,6 +2,8 @@ NAME = libft.a
 
 COMPILATION = cc
 
+CmpFlags	= -Wall -Wextra -Werror
+
 SRCS := $(wildcard *.c)
 
 OBJS = $(SRCS:.c=.o)
