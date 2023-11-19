@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
     if (lst == NULL || new == NULL)
@@ -21,19 +20,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
     *lst = new;
 } 
 
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*nnode;
 
-	nnode = (t_list *)malloc(sizeof(t_list));
-	if (!nnode)
-		return (NULL);
-	nnode->content = content;
-//	nnode->next = NULL;
-	return (nnode);
-}
-
-int main()
+/* int main()
 {
     char *content1 = "hello";
     char *content2 = "world!";
@@ -53,4 +41,4 @@ int main()
     printf("%s \n", (char *)headr -> content);
     printf("%s" , (char *)front -> content);
     return (0);
-}
+} */
