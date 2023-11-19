@@ -20,6 +20,8 @@ char	**ft_calculcount(char const *s, char c)
 
 	i = 0;
 	count = 0;
+	if (s[0] != c && s[0] != '\0')
+		count++;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c && (s[i + 1] != c && s[i + 1] != '\0'))
@@ -27,6 +29,7 @@ char	**ft_calculcount(char const *s, char c)
 		i++;
 	}
 	count++;
+	//	printf("%zu\n", count);
 	str = (char **)malloc(count * sizeof(char *));
 	if (!str)
 		return (NULL);
@@ -38,6 +41,7 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 	size_t	i;
 	size_t	j;
 	size_t	*str;
+	size_t	t;
 
 	i = 0;
 	j = 0;
@@ -57,18 +61,23 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 		i++;
 	}
 	str[j] != '\0';
+	t = 0;
+	/*  	while (str[t] != '\0')
+		{
+			printf("%zu ->", str[t]);
+			t++;
+		}  */
 	return (str);
 }
 
 size_t	ft_allo_size(char const *s, char c, size_t index)
 {
 	size_t	i;
-	size_t	k;
 	size_t	result;
 	char	*str;
 
+	i = 0;
 	i = index;
-	k = 0;
 	while (s[index] != '\0' && s[index] != c)
 		index++;
 	result = index - i;
@@ -89,6 +98,15 @@ char	**ft_split(char const *s, char c)
 	while (j[count] != '\0')
 		count++;
 	n = 0;
+	if (s[0] != c && s[0] != '\0')
+	{
+		index = 0;
+		str[n] = (char *)malloc((ft_allo_size(s, c, index)) * sizeof(char));
+		if (str[n] == NULL)
+			return (NULL);
+		str[n] = ft_substr(s, index, ft_allo_size(s, c, index));
+		n++;
+	}
 	while (n < count)
 	{
 		index = j[n];
@@ -102,22 +120,21 @@ char	**ft_split(char const *s, char c)
 	return (str);
 }
 
-/*  int	main(void)
+int	main(void)
 {
 	char const	*s;
 	char		c;
 	char		**str;
 	size_t		i;
 
-	s = " HelloWorld";
+	s = "Hss ell oWorld";
 	c = ' ';
 	str = ft_split(s, c);
 	i = 0;
 	while (str[i] != NULL)
-	{
-		printf("%s\n", str[i]);
-		i++;
-	}
+		{
+			printf("%s\n", str[i]);
+			i++;
+		} 
 	return (0);
-} 
- */
+}
