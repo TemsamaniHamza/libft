@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+/* 
 void ft_lstclear(t_list **lst, void (*del)(void*))
 {
     t_list *bullst;
@@ -27,4 +29,4 @@ void ft_lstclear(t_list **lst, void (*del)(void*))
         }
     }
     *lst = NULL;
-}
+} */

@@ -29,7 +29,6 @@ char	**ft_calculcount(char const *s, char c)
 		i++;
 	}
 	count++;
-	//	printf("%zu\n", count);
 	str = (char **)malloc(count * sizeof(char *));
 	if (!str)
 		return (NULL);
@@ -62,11 +61,6 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 	}
 	str[j] != '\0';
 	t = 0;
-	/*  	while (str[t] != '\0')
-		{
-			printf("%zu ->", str[t]);
-			t++;
-		}  */
 	return (str);
 }
 
@@ -120,7 +114,7 @@ char	**ft_split(char const *s, char c)
 	return (str);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	char const	*s;
 	char		c;
@@ -135,6 +129,7 @@ int	main(void)
 		{
 			printf("%s\n", str[i]);
 			i++;
-		} 
+		}
 	return (0);
 }
+ */

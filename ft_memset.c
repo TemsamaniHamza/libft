@@ -29,6 +29,13 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
+/* #include <string.h>
+int main()
+{
+	size_t s[] = {12,135,9,12};
+	ft_memset(s, 2, 9);
+	printf("%zu", s[2]);
+} */
 /* void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t			i;
