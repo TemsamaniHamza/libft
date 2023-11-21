@@ -34,7 +34,26 @@ char	**ft_calculcount(char const *s, char c)
 		return (NULL);
 	return (str);
 }
+size_t	*ft_calculsize(char const *s, char c)
+{
+	size_t	i;
+	size_t	count;
+	size_t  *str;
 
+	i = 0;
+	count = 0;
+	while (s[i] != '\0')
+	{
+		if (s[0] != c && s[0] != '\0')
+			count++;
+		if (s[i] == c && (s[i + 1] != c && s[i + 1] != '\0'))
+			count++;
+		i++;
+	}
+	count++;
+	str = (size_t *)malloc(count * sizeof(size_t));
+	return (str);
+}
 size_t	*ft_calcul_nmb(char const *s, char c)
 {
 	size_t	i;
@@ -44,7 +63,7 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	str = (size_t *)ft_calculcount(s, c);
+	str = ft_calculsize(s, c);
 	if (s[i] != '\0' && s[i] != c)
 	{
 		str[j] = i + 1;
@@ -69,7 +88,7 @@ size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
 	size_t	i;
 	size_t	result;
 	char	*str;
-	size_t  *j;
+	size_t	*j;
 
 	i = 0;
 	i = index;
@@ -79,7 +98,7 @@ size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
 	if (flag == 0)
 		return (result);
 	i = 0;
-	j = ft_calcul_nmb(s,c);
+	j = ft_calcul_nmb(s, c);
 	while (j[i] != '\0')
 		i++;
 	free(j);
@@ -97,7 +116,8 @@ char	**ft_split(char const *s, char c)
 	j = ft_calcul_nmb(s, c);
 	n = 0;
 	if (s[0] != c && s[0] != '\0')
-		str[n++] = ft_substr(s, 0, ft_allo_size(s, c, 0, 0));;
+		str[n++] = ft_substr(s, 0, ft_allo_size(s, c, 0, 0));
+	;
 	while (n < ft_allo_size(s, c, 0, 1))
 	{
 		index = j[n];
@@ -107,7 +127,6 @@ char	**ft_split(char const *s, char c)
 	free(j);
 	return (str);
 }
-
 /* int	main(void)
 {
 	char const	*s;
@@ -127,4 +146,4 @@ char	**ft_split(char const *s, char c)
 	}
 	free(str);
 	return (0);
-} */
+}  */
