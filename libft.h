@@ -12,7 +12,6 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define INT_MAX 4294967295
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>

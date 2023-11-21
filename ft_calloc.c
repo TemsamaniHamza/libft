@@ -16,7 +16,7 @@ void	*ft_calloc(size_t number, size_t size)
 {
 	void	*ptr;
 
-	if (number && size && number > (INT_MAX))
+	if (number && size && number > 4294967295)
 		return (NULL);
 	ptr = (void *)malloc(number * size);
 	if (!ptr)
@@ -29,6 +29,6 @@ void	*ft_calloc(size_t number, size_t size)
 	size_t number = 2;
 	size_t size = sizeof(int);
 	char *ptr;
-	ptr = (char *)ft_calloc(number, size);
+	ptr = (char *)ft_calloc(4294967294, size);
 	printf("%s", ptr); 
-} */
+}  */
