@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
 
 /* int	ft_calcul_len(char const *s, char c)
 {
@@ -238,7 +238,83 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 
 	str = ft_calculcount(s, c);
-	j = ft_calcul_nmb(s, c);
+	j = ft_ca
+static size_t	count_words(const char *s, char c)
+{
+	int	flag;
+	int	i;
+	int	count;
+
+	flag = 0;
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (!flag && s[i] != c)
+			flag = ++count;
+		if (flag && s[i] == c)
+			flag = 0;
+		i++;
+	}
+	return (count);
+}
+
+static size_t	count_word_len(const char *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
+}
+
+static char	**temp_inicializer(char ***strs, size_t *i, size_t *j, size_t wc)
+{
+	*strs = (char **)malloc((wc + 1) * sizeof(char *));
+	*i = -1;
+	*j = 0;
+	return (*strs);
+}
+
+static char	**myfree(char **strs, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+		free(strs[i++]);
+	free (strs);
+	return (0);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	size_t	word_len;
+	char	**strs;
+
+	if (!s)
+		return (0);
+	if (!temp_inicializer(&strs, &i, &j, count_words(s, c)))
+		return (0);
+	while (++i < count_words(s, c))
+	{
+		while (s[j] && s[j] == c)
+			j++;
+		if (!s[j])
+			break ;
+		word_len = count_word_len(&(s[j]), c);
+		strs[i] = malloc((word_len + 1) * sizeof(char));
+		if (!strs[i])
+			return ((char **)myfree(strs, i));
+		ft_strlcpy(strs[i], &(s[j]), word_len + 1);
+		j += word_len;
+	}
+	strs[i] = 0;
+	return (strs);
+}lcul_nmb(s, c);
 	count = 0;
 	while (j[count] != '\0')
 		count++;
@@ -289,3 +365,145 @@ if (s[0] != c && s[0] != '\0')
 		}
 	return (0);
 }  */
+
+/* 
+static size_t	count_words(const char *s, char c)
+{
+	int	flag;
+	int	i;
+	int	count;
+
+	flag = 0;
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (!flag && s[i] != c)
+			flag = ++count;
+		if (flag && s[i] == c)
+			flag = 0;
+		i++;
+	}
+	return (count);
+}
+
+static size_t	count_word_len(const char *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
+}
+
+static char	**temp_inicializer(char ***strs, size_t *i, size_t *j, size_t wc)
+{
+	*strs = (char **)malloc((wc + 1) * sizeof(char *));
+	*i = -1;
+	*j = 0;
+	return (*strs);
+}
+
+static char	**myfree(char **strs, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+		free(strs[i++]);
+	free (strs);
+	return (0);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	size_t	word_len;
+	char	**strs;
+
+	if (!s)
+		return (0);
+	if (!temp_inicializer(&strs, &i, &j, count_words(s, c)))
+		return (0);
+	while (++i < count_words(s, c))
+	{
+		while (s[j] && s[j] == c)
+			j++;
+		if (!s[j])
+			break ;
+		word_len = count_word_len(&(s[j]), c);
+		strs[i] = malloc((word_len + 1) * sizeof(char));
+		if (!strs[i])
+			return ((char **)myfree(strs, i));
+		ft_strlcpy(strs[i], &(s[j]), word_len + 1);
+		j += word_len;
+	}
+	strs[i] = 0;
+	return (strs);
+} */
+
+#include "libft.h"
+/* 
+char	**ft_calculcount(char const *s, char c)
+{
+	size_t	i;
+	size_t	count;
+	char	**str;
+
+	i = 0;
+	count = 0;
+	if (s[0] != c && s[0] != '\0')
+		count++;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && (s[i + 1] != c && s[i + 1] != '\0'))
+			count++;
+		i++;
+	}
+	count++;
+	str = (char **)malloc(count * sizeof(char *));
+	if (!str)
+		return (NULL);
+	return (str);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	size_t i = 0;
+	char 	**str;
+	size_t j = 0;
+	size_t n = 0;
+	str = ft_calculcount(s,c);
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && s[i + 1] != c)
+		{
+			while (s[i + j] != '\0' && s[i + j + 1] != c)
+				j++;
+			str[n] = ft_substr(s, i, j);
+			printf("PRINTED  ");
+			n++;
+			i = i + j;
+			j = 0;
+		}
+		i++;
+	}
+	str[n] = NULL;
+	return (str);
+}
+
+int main()
+{
+	char *s = "HELLO MATE HOW ARE YOU";
+	char c = ' ';
+	char **result = ft_split(s,c);
+	size_t i = 0;
+	while (result[i] != NULL)
+	{
+		printf("%s", result[i]);
+		i++;
+	}
+	return (0);
+} */

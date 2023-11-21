@@ -64,53 +64,47 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 	return (str);
 }
 
-size_t	ft_allo_size(char const *s, char c, size_t index)
+size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
 {
 	size_t	i;
 	size_t	result;
 	char	*str;
+	size_t  *j;
 
 	i = 0;
 	i = index;
 	while (s[index] != '\0' && s[index] != c)
 		index++;
 	result = index - i;
-	return (result);
+	if (flag == 0)
+		return (result);
+	i = 0;
+	j = ft_calcul_nmb(s,c);
+	while (j[i] != '\0')
+		i++;
+	free(j);
+	return (i);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	size_t	*j;
-	size_t	count;
 	size_t	n;
 	size_t	index;
 	char	**str;
 
 	str = ft_calculcount(s, c);
 	j = ft_calcul_nmb(s, c);
-	count = 0;
-	while (j[count] != '\0')
-		count++;
 	n = 0;
 	if (s[0] != c && s[0] != '\0')
-	{
-		index = 0;
-		str[n] = (char *)malloc((ft_allo_size(s, c, index)) * sizeof(char));
-		if (str[n] == NULL)
-			return (NULL);
-		str[n] = ft_substr(s, index, ft_allo_size(s, c, index));
-		n++;
-	}
-	while (n < count)
+		str[n++] = ft_substr(s, 0, ft_allo_size(s, c, 0, 0));;
+	while (n < ft_allo_size(s, c, 0, 1))
 	{
 		index = j[n];
-		str[n] = (char *)malloc((ft_allo_size(s, c, index)) * sizeof(char));
-		if (str[n] == NULL)
-			return (NULL);
-		str[n] = ft_substr(s, index, ft_allo_size(s, c, index));
-		n++;
+		str[n++] = ft_substr(s, index, ft_allo_size(s, c, index, 0));
 	}
 	str[n] = NULL;
+	free(j);
 	return (str);
 }
 
@@ -121,15 +115,16 @@ char	**ft_split(char const *s, char c)
 	char		**str;
 	size_t		i;
 
-	s = "Hss ell oWorld";
+	s = "Hss ell oWorld fgdr fgnh ftghg gfnf";
 	c = ' ';
 	str = ft_split(s, c);
 	i = 0;
 	while (str[i] != NULL)
-		{
-			printf("%s\n", str[i]);
-			i++;
-		}
+	{
+		printf("%s\n", str[i]);
+		free(str[i]);
+		i++;
+	}
+	free(str);
 	return (0);
-}
- */
+} */
