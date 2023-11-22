@@ -15,8 +15,10 @@
 void	*ft_calloc(size_t number, size_t size)
 {
 	void	*ptr;
+	size_t	max_sizet;
 
-	if (number && size && number > 4294967295)
+	max_sizet = 4294967295;
+	if (number > max_sizet || size >max_sizet || (number * size) > 4294967295)
 		return (NULL);
 	ptr = (void *)malloc(number * size);
 	if (!ptr)
@@ -24,11 +26,10 @@ void	*ft_calloc(size_t number, size_t size)
 	ft_bzero(ptr, (number * size));
 	return (ptr);
 }
-
-/* int main(){
+/* 
+int main(){
 	size_t number = 2;
-	size_t size = sizeof(int);
 	char *ptr;
-	ptr = (char *)ft_calloc(4294967294, size);
+	ptr = (char *)ft_calloc(2, 4294967295);
 	printf("%s", ptr); 
 }  */
