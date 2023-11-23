@@ -26,10 +26,3 @@ void	*ft_calloc(size_t number, size_t size)
 	ft_bzero(ptr, (number * size));
 	return (ptr);
 }
-/* 
-int main(){
-	size_t number = 2;
-	char *ptr;
-	ptr = (char *)ft_calloc(2, 4294967295);
-	printf("%s", ptr); 
-}  */
