@@ -42,10 +42,11 @@
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char		*d;
-	const char	*s = src;
+	const char	*s;
 	size_t		i;
 
 	d = dest;
+	s = src;
 	i = 0;
 	if (d < s)
 	{
