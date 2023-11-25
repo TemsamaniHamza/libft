@@ -55,6 +55,10 @@ char	*ft_swap(char *str)
 
 /* char	*ft_condition(int n)
 {
+	size_t	i;
+	int		rest;
+	char	*str;
+
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	if (n == 0)
@@ -62,13 +66,8 @@ char	*ft_swap(char *str)
 	if (n == 2147483647)
 		return (ft_strdup("2147483647"));
 } */
-
 char	*ft_itoa_sub(int n, size_t len, size_t check)
 {
-	size_t	i;
-	int		rest;
-	char	*str;
-
 	i = 0;
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (str == NULL)
@@ -107,7 +106,7 @@ char	*ft_itoa(int n)
 		return (ft_strdup("0"));
 	str = ft_itoa_sub(n, len, check);
 	if (str == NULL)
-		return NULL;
+		return (NULL);
 	ft_swap(str);
 	return (str);
 }

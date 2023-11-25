@@ -21,12 +21,9 @@ void	ft_putendl_fd(char *s, int fd)
 }
 /* #include <fcntl.h>
 
-int main(){
+int	main(void){
 	char s[] = "Hello world";
 	int fd = open("text.txt", O_CREAT | O_RDWR);
 
 	ft_putendl_fd(s,fd);
 } */
-
-
-

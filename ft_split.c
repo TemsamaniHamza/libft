@@ -34,11 +34,12 @@ char	**ft_calculcount(char const *s, char c)
 		return (NULL);
 	return (str);
 }
+
 size_t	*ft_calculsize(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
-	size_t  *str;
+	size_t	*str;
 
 	i = 0;
 	count = 0;
@@ -54,6 +55,7 @@ size_t	*ft_calculsize(char const *s, char c)
 	str = (size_t *)malloc(count * sizeof(size_t));
 	return (str);
 }
+
 size_t	*ft_calcul_nmb(char const *s, char c)
 {
 	size_t	i;
@@ -108,13 +110,13 @@ char	**ft_split(char const *s, char c)
 	size_t	n;
 	size_t	index;
 	char	**str;
-	if(!s)
-		return NULL;
+
+	if (!s)
+		return (NULL);
 	str = ft_calculcount(s, c);
 	if (str == NULL)
-		return NULL;
+		return (NULL);
 	j = ft_calcul_nmb(s, c);
-	
 	n = 0;
 	if (s[0] != c && s[0] != '\0')
 		str[n++] = ft_substr(s, 0, ft_allo_size(s, c, 0, 0));
@@ -127,14 +129,14 @@ char	**ft_split(char const *s, char c)
 	free(j);
 	return (str);
 }
-/* 
+/*
 int	main(void)
 {
 	char		c;
 	char		**str;
 	size_t		i;
 
-	char *s = "split";	
+	char *s = "split";
 	c = ' ';
 	str = ft_split(s, c);
 	i = 0;
