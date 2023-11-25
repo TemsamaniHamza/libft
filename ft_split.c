@@ -108,9 +108,13 @@ char	**ft_split(char const *s, char c)
 	size_t	n;
 	size_t	index;
 	char	**str;
-
+	if(!s)
+		return NULL;
 	str = ft_calculcount(s, c);
+	if (str == NULL)
+		return NULL;
 	j = ft_calcul_nmb(s, c);
+	
 	n = 0;
 	if (s[0] != c && s[0] != '\0')
 		str[n++] = ft_substr(s, 0, ft_allo_size(s, c, 0, 0));
@@ -123,15 +127,14 @@ char	**ft_split(char const *s, char c)
 	free(j);
 	return (str);
 }
-
-/* int	main(void)
+/* 
+int	main(void)
 {
-	char const	*s;
 	char		c;
 	char		**str;
 	size_t		i;
 
-	s = "Hss\0ell oWorld";
+	char *s = "split";	
 	c = ' ';
 	str = ft_split(s, c);
 	i = 0;
@@ -143,5 +146,4 @@ char	**ft_split(char const *s, char c)
 	}
 	free(str);
 	return (0);
-} 
- */
+}  */
