@@ -56,12 +56,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ptr = ft_substr(s1, get_first_position(s1, set), len);
 	return (ptr);
 }
-
-//
-/* int	main(void){
-	char const *s1 = " hello world ";
-	char const *set = " ";
-	char *result = ft_strtrim(s1,set);
-	printf("%s", result);
-	return (0);
-}  */

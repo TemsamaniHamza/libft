@@ -59,7 +59,6 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 	size_t	i;
 	size_t	j;
 	size_t	*str;
-	size_t	t;
 
 	i = 0;
 	j = 0;
@@ -78,8 +77,7 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 		}
 		i++;
 	}
-	str[j] != '\0';
-	t = 0;
+	str[j] = '\0';
 	return (str);
 }
 
@@ -87,7 +85,6 @@ size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
 {
 	size_t	i;
 	size_t	result;
-	char	*str;
 	size_t	*j;
 
 	i = 0;
@@ -117,7 +114,6 @@ char	**ft_split(char const *s, char c)
 	n = 0;
 	if (s[0] != c && s[0] != '\0')
 		str[n++] = ft_substr(s, 0, ft_allo_size(s, c, 0, 0));
-	;
 	while (n < ft_allo_size(s, c, 0, 1))
 	{
 		index = j[n];
@@ -127,6 +123,7 @@ char	**ft_split(char const *s, char c)
 	free(j);
 	return (str);
 }
+
 /* int	main(void)
 {
 	char const	*s;
@@ -134,7 +131,7 @@ char	**ft_split(char const *s, char c)
 	char		**str;
 	size_t		i;
 
-	s = "Hss ell oWorld fgdr fgnh ftghg gfnf";
+	s = "Hss\0ell oWorld";
 	c = ' ';
 	str = ft_split(s, c);
 	i = 0;
@@ -146,4 +143,5 @@ char	**ft_split(char const *s, char c)
 	}
 	free(str);
 	return (0);
-}  */
+} 
+ */

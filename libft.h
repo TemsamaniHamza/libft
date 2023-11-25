@@ -15,8 +15,11 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <bsd/string.h>
+#include <stdint.h>
 
-size_t				ft_strlen(const char *str);
+
+size_t				ft_strlen(const char *s);
 void				*ft_memset(void *s, int c, size_t n);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);

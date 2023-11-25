@@ -25,12 +25,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-/*
-int	main(void){
-		char s[] = "hello world";
-		size_t n = 2;
-		ft_bzero(s+2, n);
-		printf("%s", s);
-		return (0);
-}
- */

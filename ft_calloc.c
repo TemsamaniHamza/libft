@@ -15,11 +15,16 @@
 void	*ft_calloc(size_t number, size_t size)
 {
 	void	*ptr;
-	size_t	max_sizet;
+ 	size_t	max_sizet;
 
-	max_sizet = 4294967295;
-	if (number > max_sizet || size >max_sizet || (number * size) > 4294967295)
-		return (NULL);
+	max_sizet = number * size;
+	if (number == 0 || size == 0)
+	{
+		ptr = malloc(0);
+		return (ptr);
+	}
+	if (max_sizet / number != size)
+		return(NULL);
 	ptr = (void *)malloc(number * size);
 	if (!ptr)
 		return (NULL);

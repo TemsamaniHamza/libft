@@ -13,9 +13,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	size_t	i;
-	int		sign;
-	int		result;
+	int	i;
+	int	sign;
+	int	result;
 
 	sign = 1;
 	i = 0;
@@ -33,9 +33,11 @@ int	ft_atoi(const char *nptr)
 		result = (result * 10) + (nptr[i] - '0');
 		i++;
 	}
-	return ((int)(result * sign));
+	return (result * sign);
 }
-
+/*
+"         -+6789jgkhlkg"
+ */
 /* int		main(void){
 	const char *nptr = "429467295";
 	int result = ft_atoi(nptr);

@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include <string.h>
+
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t			i;
@@ -28,49 +29,15 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
-/* int main()
-{
-	size_t arr[] = {156,56,851};
-	size_t i = 0;
-	ft_memset(arr, 57,1);
-	ft_memset((char *)&arr + 1,5,1);	
-	printf("%ld", arr[0]);
-} */
-/* #include <string.h>
+/* 
 int main()
 {
-	size_t s[] = {12,135,9,12};
-	ft_memset(s, 2, 9);
-	printf("%zu", s[2]);
-} */
-/* void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t			i;
-	unsigned char	byte;
-	unsigned char	*ptr;
 
-	byte = c;
-	ptr = s;
-	i = 0;
-	byte = (unsigned char)c;
-	ptr = (unsigned char *)s;
-	while (i < n)
-	{
-		ptr[i] = byte;
-		i++;
-	}
-	return (s);
-}
- */
-/* int main() {
-	// Example usage of ft_memset
-	char buffer[20] = "Hello, World!";
-	char bufer[20] = "Hello, World!";
 
-	ft_memset(buffer + 10, 'X', 5);
-	printf("Modified String: %s\n", buffer); // Output: "XXXXX, World!"
-	memset(bufer + 10, 'X', 5);
-	printf("Modified String: %s\n", bufer); // Output: "XXXXX, World!"
+	
+	int ptr[] = {2,4,7,8,9};
+	ft_memset(&ptr[2],3,2);
+	ft_memset(&ptr[2],232,1);
+	printf("%d", ptr[2]);
 	return (0);
 } */

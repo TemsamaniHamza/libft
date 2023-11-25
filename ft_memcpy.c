@@ -28,20 +28,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-/* void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char	*_src;
-	unsigned char	*_dest;
-
-	_src = (unsigned char *)src;
-	_dest = (unsigned char *)dest;
-	while (n > 0)
-	{
-		*_dest = *_src;
-		_dest++;
-		_src++;
-		n--;
-	}
-	return (dest);
-} */

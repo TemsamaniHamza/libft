@@ -14,28 +14,22 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t			i;
-	unsigned char	*str;
-	char			ss;
+	size_t	i;
+	char	*str;
+	char	ss;
 
 	i = ft_strlen(s);
-	str = (unsigned char *)s;
+	str = (char *)s;
 	ss = (char)c;
 	if (str[i] == ss)
-		return ((char *)&str[i]);
+		return (&str[i]);
 	while (i > 0)
 	{
 		if (str[i] == ss)
-			return ((char *)&str[i]);
+			return (&str[i]);
 		i--;
 	}
 	if (str[i] == ss)
-		return ((char *)&str[i]);
+		return (&str[i]);
 	return (NULL);
 }
-
-/* int main(){
-	const char s[] = "hello world";
-	int c = 'l';
-	printf("%s", ft_strrchr(s,c));
-}  */

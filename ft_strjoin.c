@@ -72,13 +72,11 @@
 	size_t	j;
 
 	i = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	str = ((char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char)));
 	if (str == NULL)
 		return (NULL);
-	if (s1 == NULL)
-		return ((char *)s2);
-	else if (s2 == NULL)
-		return ((char *)s1);
 	while (s1[i] != '\0')
 	{
 		str[i] = s1[i];
@@ -86,14 +84,7 @@
 	}
 	j = 0;
 	while (s2[j] != '\0')
-
 		str[i++] = s2[j++];
 	str[i] = '\0';
 	return (str);
 }
-
-/* int main(){
-	char const *s1 = "hahaha";
-	char const *s2 = "World!";
-	printf("%s\n", ft_strjoin(s1,s2));
-}  */ 

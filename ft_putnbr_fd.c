@@ -22,7 +22,7 @@ void	ft_putnbr_fd(int n, int fd)
 	i = 0;
 	if (nbr < 0)
 	{
-		write(1, "-", 1);
+		write(fd, "-", 1);
 		nbr = nbr * -1;
 	}
 	while (nbr > 9)
@@ -39,9 +39,9 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
-/*
+/* 
 int	main(void){
 	int n = 42159;
 	int fd = 1;
 	ft_putnbr_fd(n,fd);
-} */
+}  */

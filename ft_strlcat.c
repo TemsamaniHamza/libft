@@ -18,7 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	j;
 	size_t	k;
 	size_t	len;
-
+	 if (!dst || size == 0)
+	 	return (ft_strlen(src));
 	i = 0;
 	j = ft_strlen(src);
 	k = ft_strlen(dst);
@@ -37,40 +38,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (k + j);
 }
 
-/* #include <string.h>
-
-size_t	ft_strlcat(char *dst, const char *src, size_t size) {
-	size_t i = 0;
-	size_t j = strlen(src);
-	size_t k = strlen(dst);
-	size_t len = k;
-
-	if (size == 0) {
-		return (j);
-	} else if (size < k) {
-		return (size + j);
-	} else {
-		while (src[i] != '\0' && len < size - 1) {
-			dst[len] = src[i];
-			len++;
-			i++;
-		}
-		if (len < size) {
-			dst[len] = '\0';
-		}
-		return (j + k);
-	}
-} */
-
-/*
-int	main(void){
-	char dest[] = "Hello";
-	char src[] = "NULLL";
-	size_t size = 2;
-	ft_strlcat(dest, src, size);
-	printf("%s\n", dest);
-	return (0);
-}  */
 /* size_t	ft_strlcat(char *dest,const char *src, size_t size)
 {
 	size_t	i;

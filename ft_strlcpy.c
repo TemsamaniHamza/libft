@@ -29,14 +29,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (j);
 }
-/*
-int	main(void){
-	char dst[20];
-	const char src[] = "hello wolrd";
-	size_t size2 = 4;
-	size_t size1 = 0;
-	ft_strlcpy(dst,src,size1);
-	printf("the first string is : %s\n", dst);
-	ft_strlcpy(dst,src,size2);
-	printf("the second string is : %s\n", dst);
-} */

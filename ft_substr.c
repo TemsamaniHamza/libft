@@ -38,11 +38,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
-
-/* int main(){
-	char const *s = "Hello world!";
-	unsigned int start = 2;
-	size_t len = 5;
-	printf("%s\n",ft_substr(s,start,len));
-}
- */

@@ -340,7 +340,34 @@ char	**ft_split(const char *s, char c)
 if (s[0] != c && s[0] != '\0')
 	{
 		index = 0;
-		while (s[index] != c)
+		while (s[index] != c)size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
+{
+	size_t	i;
+	size_t	result;
+	char	*str;
+	size_t	*j;
+
+	i = 0;
+	i = index;
+	while (s[index] != '\0' && s[index] != c)
+		index++;
+	result = index - i;
+	if (flag == 0)
+		return (result);
+	i = 0;
+	if (flag == 2)
+	{
+		while (i < n)
+		free(strs[i++]);
+		free (strs);
+		return (0);
+	}
+	j = ft_calcul_nmb(s, c);
+	while (j[i] != '\0')
+		i++;
+	free(j);
+	return (i);
+}
 			index++;
 		str[n] = (char *)malloc(index * sizeof(char));
 		if (str[n] == NULL)
@@ -353,8 +380,34 @@ if (s[0] != c && s[0] != '\0')
 	char		c;
 	char		**str;
 	size_t		i;
+size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
+{
+	size_t	i;
+	size_t	result;
+	char	*str;
+	size_t	*j;
 
-	s = "   Hs s ell oWorld   ";
+	i = 0;
+	i = index;
+	while (s[index] != '\0' && s[index] != c)
+		index++;
+	result = index - i;
+	if (flag == 0)
+		return (result);
+	i = 0;
+	if (flag == 2)
+	{
+		while (i < n)
+		free(strs[i++]);
+		free (strs);
+		return (0);
+	}
+	j = ft_calcul_nmb(s, c);
+	while (j[i] != '\0')
+		i++;
+	free(j);
+	return (i);
+}";
 	c = ' ';
 	str = ft_split(s, c);
 	i = 0;
@@ -370,18 +423,67 @@ if (s[0] != c && s[0] != '\0')
 static size_t	count_words(const char *s, char c)
 {
 	int	flag;
-	int	i;
-	int	count;
+	int	i;size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
+{
+	size_t	i;
+	size_t	result;
+	char	*str;
+	size_t	*j;
 
-	flag = 0;
 	i = 0;
-	count = 0;
+	i = index;
+	while (s[index] != '\0' && s[index] != c)
+		index++;
+	result = index - i;
+	if (flag == 0)
+		return (result);
+	i = 0;
+	if (flag == 2)
+	{
+		while (i < n)
+		free(strs[i++]);
+		free (strs);
+		return (0);
+	}
+	j = ft_calcul_nmb(s, c);
+	while (j[i] != '\0')
+		i++;
+	free(j);
+	return (i);
+}
 	while (s[i])
 	{
 		if (!flag && s[i] != c)
 			flag = ++count;
 		if (flag && s[i] == c)
-			flag = 0;
+			flag = 0;size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
+{
+	size_t	i;
+	size_t	result;
+	char	*str;
+	size_t	*j;
+
+	i = 0;
+	i = index;
+	while (s[index] != '\0' && s[index] != c)
+		index++;
+	result = index - i;
+	if (flag == 0)
+		return (result);
+	i = 0;
+	if (flag == 2)
+	{
+		while (i < n)
+		free(strs[i++]);
+		free (strs);
+		return (0);
+	}
+	j = ft_calcul_nmb(s, c);
+	while (j[i] != '\0')
+		i++;
+	free(j);
+	return (i);
+}
 		i++;
 	}
 	return (count);
@@ -439,12 +541,12 @@ char	**ft_split(const char *s, char c)
 			return ((char **)myfree(strs, i));
 		ft_strlcpy(strs[i], &(s[j]), word_len + 1);
 		j += word_len;
-	}
-	strs[i] = 0;
-	return (strs);
-} */
-
-#include "libft.h"
+	}	j = ft_calcul_nmb(s, c);
+	while (j[i] != '\0')
+		i++;
+	free(j);
+	return (i);
+}
 /* 
 char	**ft_calculcount(char const *s, char c)
 {
@@ -475,15 +577,34 @@ char	**ft_split(const char *s, char c)
 	char 	**str;
 	size_t j = 0;
 	size_t n = 0;
-	str = ft_calculcount(s,c);
-	while (s[i] != '\0')
+	str = ft_calculcsize_t	ft_allo_size(char const *s, char c, size_t index, int flag)
+{
+	size_t	i;
+	size_t	result;
+	char	*str;
+	size_t	*j;
+
+	i = 0;
+	i = index;
+	while (s[index] != '\0' && s[index] != c)
+		index++;
+	result = index - i;
+	if (flag == 0)
+		return (result);
+	i = 0;
+	if (flag == 2)
 	{
-		if (s[i] == c && s[i + 1] != c)
-		{
-			while (s[i + j] != '\0' && s[i + j + 1] != c)
-				j++;
-			str[n] = ft_substr(s, i, j);
-			printf("PRINTED  ");
+		while (i < n)
+		free(strs[i++]);
+		free (strs);
+		return (0);
+	}
+	j = ft_calcul_nmb(s, c);
+	while (j[i] != '\0')
+		i++;
+	free(j);
+	return (i);
+}PRINTED  ");
 			n++;
 			i = i + j;
 			j = 0;
@@ -507,3 +628,25 @@ int main()
 	}
 	return (0);
 } */
+
+
+
+size_t	ft_allo_size(char const *s, char c, size_t index, int 2)
+{
+	size_t	i;
+	size_t	result;
+	char	*str;
+	size_t	*j;
+
+
+	i = 0;
+	if (flag == 2)
+	{
+		while (i < n)
+		free(strs[i++]);
+		free (strs);
+		return (0);
+	}
+}
+
+
