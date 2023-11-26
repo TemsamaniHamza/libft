@@ -30,4 +30,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 			bullst = bullst->next;
 		bullst->next = new;
 	}
+	*lst = NULL;
 }
