@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_cleat_split.c                                 :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htemsama <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 10:26:30 by htemsama          #+#    #+#             */
-/*   Updated: 2023/11/13 10:26:32 by htemsama         ###   ########.fr       */
+/*   Created: 2023/11/26 14:20:01 by htemsama          #+#    #+#             */
+/*   Updated: 2023/11/26 14:20:02 by htemsama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,97 +35,82 @@ static char	**ft_calculcount(char const *s, char c)
 	return (str);
 }
 
-static size_t	*ft_calculsize(char const *s, char c)
+char	**ft_mini_split(char const *s, char c, char **str, size_t i)
+{
+	size_t	m;
+	size_t	j;
+
+	m = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c && s[i] != '\0')
+		{
+			j = 0;
+			while (s[i + j] != '\0' && s[i + j] != c)
+				j++;
+			str[m] = ft_substr(s, i, j);
+			if (!str[m])
+			{
+				while (m > 0)
+					free(str[m--]);
+				return (NULL);
+			}
+			m++;
+			i = i + j - 1;
+		}
+		i++;
+	}
+	return (str);
+}
+
+static size_t	ft_calculsize(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
-	size_t	*str;
 
 	i = 0;
 	count = 0;
 	while (s[i] != '\0')
 	{
-		if (s[0] != c && s[0] != '\0')
+		if (i == 0 && s[i] != c && s[i] != '\0')
 			count++;
 		if (s[i] == c && (s[i + 1] != c && s[i + 1] != '\0'))
 			count++;
 		i++;
 	}
-	count++;
-	str = (size_t *)malloc(count * sizeof(size_t));
-	return (str);
-}
-
-static size_t	*ft_calcul_nmb(char const *s, char c)
-{
-	size_t	i;
-	size_t	j;
-	size_t	*str;
-
-	i = 0;
-	j = 0;
-	str = ft_calculsize(s, c);
-	if (s[i] != '\0' && s[i] != c)
-	{
-		str[j] = i + 1;
-		j++;
-	}
-	while (s[i] != '\0')
-	{
-		if (s[i] == c && (s[i + 1] != c && s[i + 1] != '\0'))
-		{
-			str[j] = i + 1;
-			j++;
-		}
-		i++;
-	}
-	str[j] = '\0';
-	return (str);
-}
-
-static size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
-{
-	size_t	i;
-	size_t	result;
-	size_t	*j;
-
-	i = 0;
-	i = index;
-	while (s[index] != '\0' && s[index] != c)
-		index++;
-	result = index - i;
-	if (flag == 0)
-		return (result);
-	i = 0;
-	j = ft_calcul_nmb(s, c);
-	while (j[i] != '\0')
-		i++;
-	free(j);
-	return (i);
+	return (count);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	*j;
-	size_t	n;
-	size_t	index;
 	char	**str;
+	size_t	i;
+	size_t	index;
 
+	i = 0;
 	if (!s)
 		return (NULL);
 	str = ft_calculcount(s, c);
-	if (str == NULL)
+	if (!str)
 		return (NULL);
-	j = ft_calcul_nmb(s, c);
-	n = 0;
-	if (s[0] != c && s[0] != '\0')
-		str[n++] = ft_substr(s, 0, ft_allo_size(s, c, 0, 0));
-	while (n < ft_allo_size(s, c, 0, 1))
-	{
-		index = j[n];
-		str[n++] = ft_substr(s, index, ft_allo_size(s, c, index, 0));
-	}
-	str[n] = NULL;
-	free(j);
+	str = ft_mini_split(s, c, str, i);
+	if (!str)
+		return (NULL);
+	index = ft_calculsize(s, c);
+	str[index] = NULL;
 	return (str);
 }
+
+/* #include <stdio.h>
+
+int	main(void)
+{
+	char	**result;
+
+	result = ft_split("   HELLO     teterew           WWW    ", '\0');
+	//  char **result = ft_calculcount("HELLO WORLD THIS", ' ');
+	printf("%s\n", result[0]);
+	printf("%p\n", result[1]);
+	//  printf("%s", result[2]);
+	return (0);
+} */
