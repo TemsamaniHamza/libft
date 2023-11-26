@@ -35,14 +35,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (result * sign);
 }
-/*
-"         -+6789jgkhlkg"
- */
-/* int		main(void){
-	const char *nptr = "429467295";
-	int result = ft_atoi(nptr);
-	int result1 = atoi(nptr);
-	printf("the result of my atoi is : %d\n", result);
-	printf("the result of the original atoi is : %d\n", result1);
-	return (0);
-}  */

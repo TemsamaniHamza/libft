@@ -12,16 +12,6 @@
 
 #include "libft.h"
 
-/* char	to_upp(unsigned int j, char c)
-{
-	j = 32;
-	if (c >= 'a' && c <= 'z')
-		c -= j;
-	else
-		printf("Try next time");
-	return (c);
-} */
-
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	len;
@@ -43,11 +33,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-/* 
-int	main(void)
-{
-	char	s[] = "cccc";
-
-	printf("%s", ft_strmapi(s, to_upp));
-	return (0);
-} */

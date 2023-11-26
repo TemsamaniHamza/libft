@@ -18,10 +18,3 @@ void	ft_putstr_fd(char *s, int fd)
 		return ;
 	write(fd, s, ft_strlen(s));
 }
-/*
-int	main(void){
-	char s[] = "Hello world";
-	int fd = 1;
-	ft_putstr_fd(s,fd);
-}
- */

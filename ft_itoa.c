@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_calculen(int n)
+static size_t	ft_calculen(int n)
 {
 	int		nb;
 	size_t	count;
@@ -31,7 +31,7 @@ size_t	ft_calculen(int n)
 	return (count);
 }
 
-char	*ft_swap(char *str)
+static char	*ft_swap(char *str)
 {
 	size_t	len;
 	size_t	i;
@@ -53,21 +53,12 @@ char	*ft_swap(char *str)
 	return (str);
 }
 
-/* char	*ft_condition(int n)
+static char	*ft_itoa_sub(int n, size_t len, size_t check)
 {
 	size_t	i;
 	int		rest;
 	char	*str;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (n == 0)
-		return (ft_strdup("0"));
-	if (n == 2147483647)
-		return (ft_strdup("2147483647"));
-} */
-char	*ft_itoa_sub(int n, size_t len, size_t check)
-{
 	i = 0;
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (str == NULL)
@@ -110,41 +101,3 @@ char	*ft_itoa(int n)
 	ft_swap(str);
 	return (str);
 }
-
-/* char	*ft_itoa(int n)
-{
-	size_t	len;
-	size_t	i;
-	int		rest	len = ft_calculen(n);
-;
-	char	*str;
-	size_t	check;
-
-	check = 0;
-	len = ft_calculen(n);
-	i = 0;
-	if (n < 0)
-	{
-		len++;
-		n *= -1;
-		check++;
-	}
-	if (n == -2147483648 || n == 0)
-		return (ft_condition(n));
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	while (n > 0 && len > 0)
-	{
-		rest = n % 10;
-		str[i] = rest + '0';
-		n = n / 10;
-		len--;
-		i++;
-	}
-	if (check > 0)
-		str[i++] = '-';
-	str[i] = '\0';
-	ft_swap(str);
-	return (str);
-}  */

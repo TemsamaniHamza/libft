@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_int_str(char const c, char const *set)
+static int	ft_int_str(char const c, char const *set)
 {
 	size_t	i;
 
@@ -27,7 +27,7 @@ int	ft_int_str(char const c, char const *set)
 	return (0);
 }
 
-int	get_first_position(char const *s1, char const *set)
+static int	get_first_position(char const *s1, char const *set)
 {
 	size_t	i;
 
@@ -37,7 +37,7 @@ int	get_first_position(char const *s1, char const *set)
 	return (i);
 }
 
-int	get_last_position(char const *s, char const *set)
+static int	get_last_position(char const *s, char const *set)
 {
 	size_t	i;
 

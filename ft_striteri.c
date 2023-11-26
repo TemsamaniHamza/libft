@@ -12,12 +12,6 @@
 
 #include "libft.h"
 
-/* void	to_upper(unsigned int i, char *c)
-{
-	if (*c >= 'a' && *c <= 'z')
-		*c = *c - 32;
-}
- */
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	size_t	i;
@@ -29,11 +23,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
-
-/* int main(){
-	char str[] = "hellow ww ";
-	ft_striteri(str, to_upper);
-	printf("%s", str);
-	return (0);
-}
- */

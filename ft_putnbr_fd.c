@@ -40,10 +40,3 @@ void	ft_putnbr_fd(int n, int fd)
 		i--;
 	}
 }
-
-/*
-int	main(void){
-	int n = 42159;
-	int fd = 1;
-	ft_putnbr_fd(n,fd);
-}  */

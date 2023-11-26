@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: htemsama <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 10:42:29 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/13 10:42:29 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/26 01:09:14 by htemsama          #+#    #+#             */
+/*   Updated: 2023/11/26 01:09:15 by htemsama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,3 @@ int	ft_toupper(int c)
 		c -= 32;
 	return (c);
 }
-
-/* int main(){
-	int c = 121;
-	printf("%c", ft_toupper(c));
-}
- */

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	**ft_calculcount(char const *s, char c)
+static char	**ft_calculcount(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -35,7 +35,7 @@ char	**ft_calculcount(char const *s, char c)
 	return (str);
 }
 
-size_t	*ft_calculsize(char const *s, char c)
+static size_t	*ft_calculsize(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -56,7 +56,7 @@ size_t	*ft_calculsize(char const *s, char c)
 	return (str);
 }
 
-size_t	*ft_calcul_nmb(char const *s, char c)
+static size_t	*ft_calcul_nmb(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -83,7 +83,7 @@ size_t	*ft_calcul_nmb(char const *s, char c)
 	return (str);
 }
 
-size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
+static size_t	ft_allo_size(char const *s, char c, size_t index, int flag)
 {
 	size_t	i;
 	size_t	result;
@@ -129,23 +129,3 @@ char	**ft_split(char const *s, char c)
 	free(j);
 	return (str);
 }
-/*
-int	main(void)
-{
-	char		c;
-	char		**str;
-	size_t		i;
-
-	char *s = "split";
-	c = ' ';
-	str = ft_split(s, c);
-	i = 0;
-	while (str[i] != NULL)
-	{
-		printf("%s\n", str[i]);
-		free(str[i]);
-		i++;
-	}
-	free(str);
-	return (0);
-}  */
